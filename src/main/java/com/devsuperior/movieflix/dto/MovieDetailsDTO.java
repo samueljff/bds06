@@ -11,30 +11,30 @@ public class MovieDetailsDTO implements Serializable {
 	private String title;
 	private String subTitle;
 	private Integer year;
-	private String imgUri;
+	private String imgUrl;
 	private String synopsis;
 	private GenreDTO genre;
 	
 	public MovieDetailsDTO() {
 	}
 
-	public MovieDetailsDTO(Long id, String title, String subTitle, Integer year, String imgUri, String synopsis, GenreDTO genre) {
+	public MovieDetailsDTO(Long id, String title, String subTitle, Integer year, String imgUrl, String synopsis, GenreDTO genre) {
 		this.id = id;
 		this.title = title;
 		this.subTitle = subTitle;
 		this.year = year;
-		this.imgUri = imgUri;
+		this.imgUrl = imgUrl;
 		this.synopsis = synopsis;
 		this.genre = genre;
 	}
 	
 	public MovieDetailsDTO(Movie entity) {
 		id = entity.getId();
-		title = entity.getImgUri();
+		title = entity.getTitle();
 		subTitle = entity.getSubTitle();
 		year = entity.getYear();
-		imgUri = entity.getImgUri();
-		synopsis = entity.getImgUri();
+		imgUrl = entity.getImgUrl();
+		synopsis = entity.getSynopsis();
 		genre = new GenreDTO(entity.getGenre());
 	}
 
@@ -70,12 +70,12 @@ public class MovieDetailsDTO implements Serializable {
 		this.year = year;
 	}
 
-	public String getImgUri() {
-		return imgUri;
+	public String getImgUrl() {
+		return imgUrl;
 	}
 
-	public void setImgUri(String imgUri) {
-		this.imgUri = imgUri;
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
 	}
 
 	public String getSynopsis() {

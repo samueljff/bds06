@@ -27,7 +27,7 @@ public class Movie implements Serializable {
 	@Column(columnDefinition = "TEXT")
 	private String subTitle;
 	private Integer year;
-	private String imgUri;
+	private String imgUrl;
 	@Column(columnDefinition = "TEXT")
 	private String synopsis;
 	
@@ -41,12 +41,12 @@ public class Movie implements Serializable {
 	public Movie() {
 	}
 
-	public Movie(Long id, String title, String subTitle, Integer year, String imgUri, String synopsis, Genre genre) {
+	public Movie(Long id, String title, String subTitle, Integer year, String imgUrl, String synopsis, Genre genre) {
 		this.id = id;
 		this.title = title;
 		this.subTitle = subTitle;
 		this.year = year;
-		this.imgUri = imgUri;
+		this.imgUrl = imgUrl;
 		this.synopsis = synopsis;
 		this.genre = genre;
 	}
@@ -83,12 +83,12 @@ public class Movie implements Serializable {
 		this.year = year;
 	}
 
-	public String getImgUri() {
-		return imgUri;
+	public String getImgUrl() {
+		return imgUrl;
 	}
 
-	public void setImgUri(String imgUri) {
-		this.imgUri = imgUri;
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
 	}
 
 	public String getSynopsis() {

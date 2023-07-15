@@ -38,4 +38,14 @@ public class AuthService {
 		}
 		return user;
 	}
+	
+	public User validateSelfLoggerdUser2(Long id) {
+		User user = authenticated();
+			if (!user.getId().equals(id) && !user.hasRole("VISITOR")) {
+				throw new ForbiddenException("Access Denied");
+			} if (!user.getId().equals(id) && !user.hasRole("MEMBER")) {
+					throw new ForbiddenException("Access Denied");
+			}
+		return user;
+	}
 }

@@ -30,6 +30,12 @@ public class UserService implements UserDetailsService{
 		return new UserDTO(user);
 	}
 	
+	@Transactional(readOnly = true)
+	public UserDTO findById(Long id) {
+		User user = authService.validateSelfLoggerdUser2(id);
+		return new UserDTO(user);
+	}
+	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = userRepository.findByEmail(username);

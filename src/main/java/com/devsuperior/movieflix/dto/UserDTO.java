@@ -4,13 +4,18 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
 import com.devsuperior.movieflix.entities.User;
 
 public class UserDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
+	@NotBlank(message = "Required field!")
 	private String name;
+	@Email(message = "Campo Invalido!")
 	private String email;
 	
 	private Set<ReviewDTO> reviews = new HashSet<>();
@@ -32,6 +37,7 @@ public class UserDTO implements Serializable {
 		email = entity.getEmail();
 		
 		entity.getRoles().forEach(role -> this.roles.add(new RoleDTO(role)));
+		entity.getReviews().forEach(reviews -> this.reviews.add(new ReviewDTO(reviews)));
 	}
 
 	public Long getId() {

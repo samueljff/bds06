@@ -22,5 +22,4 @@ public class GenreService {
 		List<Genre> list = repository.findAll();
 		return list.stream().map(x -> new GenreDTO(x)).collect(Collectors.toList());
 	}
-
 }
